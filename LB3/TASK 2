@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int trainNum;
+
+    cout << "Enter the train number (1-7): ";
+    cin >> trainNum;
+
+    cout << "\nRoute information:\n";
+
+    switch (trainNum) {
+        case 1:
+            cout << "Train #1:\nKyiv to Lviv\n" << endl;
+            break;
+        case 2:
+            cout << "Train #2: \nKharkiv to Odesa\n" << endl;
+            break;
+        case 3:
+            cout << "Train #3: \nDnipro to Chernivtsi\n" << endl;
+            break;
+        case 4:
+            cout << "Train #4: \nZaporizhzhia to Ivano-Frankivsk\n" << endl;
+            break;
+        case 5:
+            cout << "Train #5: \nPoltava to Uzhhorod\n" << endl;
+            break;
+        case 6:
+            cout << "Train #6: \nChernihiv to Khmelnytskyi\n" << endl;
+            break;
+        case 7:
+            cout << "Train #7: \nSumy to Ternopil\n" << endl;
+            break;
+        default:
+            cout << "Error! Please enter a number from 1 to 7." << endl;
+    }
+}
