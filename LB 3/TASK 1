@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int N;
+    cout << "Please enter a three digit number: ";
+    cin >> N;
+
+    if (N <= 100 && N > 999) {
+        cout << "The number must be three digits!" << endl;
+        return 1;
+    }
+
+    int a = N / 100;        // сотні
+    int b = (N / 10) % 10;  // десятки
+    int c = N % 10;         // одиниці
+
+    int num = 1;
+    bool hasOdd = false;
+
+    if (a % 2 != 0) { num *= a; hasOdd = true; }
+    if (b % 2 != 0) { num *= b; hasOdd = true; }
+    if (c % 2 != 0) { num *= c; hasOdd = true; }
+
+    if (hasOdd)
+        cout << "Odd numbers is = " << num << endl;
+    else
+        cout << "There are no odd numbers!" << endl;
+
+}
