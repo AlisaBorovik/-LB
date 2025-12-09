@@ -1,0 +1,37 @@
+
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+int main() {
+    const int m = 12;
+    int a[m];
+
+    srand(time(0));
+
+    for (int i = 0; i < m; i++) {
+        a[i] = rand() % 30 + 1;
+    }
+
+    cout << "Generated array: ";
+    for (int i = 0; i < m; i++) {
+        cout << a[i] << " ";
+    }
+    cout << endl;
+
+    int A;
+    cout << "Enter a number A: ";
+    cin >> A;
+
+    int count = 0;
+    for (int i = 0; i < m; i++) {
+        if (a[i] > A) {
+            count++;
+        }
+    }
+
+    cout << "Number of elements greater than " << A << ": " << count << endl;
+
+    return 0;
+}
