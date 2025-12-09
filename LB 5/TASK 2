@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    long long prod = 1;
+    int max = 40;
+
+    for (int num = 4; num < max; num += 4) {
+        prod *= num;
+    }
+    cout << "Result: " << prod << endl;
+
+    return 0;
+}
