@@ -1,0 +1,48 @@
+#include <iostream>
+using namespace std;
+
+struct Date {
+    int hours = 0;
+    int minutes = 0;
+};
+
+int main() {
+    Date start, end;
+
+    cout << "Enter start time: ";
+    cin >> start.hours >> start.minutes;
+    if (start.hours < 0 || start.hours >= 24 || start.minutes < 0 || start.minutes >= 60) {
+        cout << "Invalid start time!" << endl;
+        return 1;
+    }
+
+
+    cout << "Enter end time: ";
+    cin >> end.hours >> end.minutes;
+    if (end.hours < 0 || end.hours >= 24 || end.minutes < 0 || end.minutes >= 60) {
+        cout << "Invalid end time!" << endl;
+        return 1;
+    }
+
+    int startMinutes = start.hours * 60 + start.minutes;
+    int endMinutes = end.hours * 60 + end.minutes;
+
+
+    int duringMinutes;
+    if (endMinutes >= startMinutes) {
+        duringMinutes = endMinutes - startMinutes;
+    } else {
+
+        duringMinutes = (24 * 60 - startMinutes) + endMinutes;
+    }
+
+
+    int duringHours = duringMinutes / 60;
+    int duringMins = duringMinutes % 60;
+
+
+    cout << duringHours << ":" << duringMins << endl;
+
+    return 0;
+}
+
