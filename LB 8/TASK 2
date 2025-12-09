@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    const int m = 12;
+    int a[m] = {1, -11, 5, 2, -7, 7, 12, -2, 0, -6, 3, 1};
+
+    int max = a[0], maxIndex = 0;
+    for (int i = 1; i < m; i++) {
+        if (a[i] > max) {
+            max = a[i];
+            maxIndex = i;
+        }
+    }
+//меняет `-` числа на 0, сравнивая, точнее смотря если число меньше за 0 то меняет на 0 и.т.д...
+    for (int i = 0; i < maxIndex; i++) {
+        if (a[i] < 0) {
+            a[i] = 0;
+        }
+    }
+
+    cout << "Result: ";
+    for (int i = 0; i < m; i++) cout << a[i] << " ";
+    cout << endl;
+
+    return 0;
+}
+
