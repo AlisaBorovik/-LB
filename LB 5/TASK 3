@@ -1,0 +1,54 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+using namespace std;
+
+int main() {
+    double a, b, h;
+
+    cout << "ENTER a: ";
+    cin >> a;
+
+    cout << "ENTER b (must be > a): ";
+    cin >> b;
+
+    cout << "ENTER h: ";
+    cin >> h;
+
+    if (b <= a) {
+        cout << "Error: b must be strictly greater than a.\n";
+        return 0;
+    }
+    if (h <= 0) {
+        cout << "Error: h must be positive.\n";
+        return 0;
+    }
+
+    double distance = b - a;
+
+    cout << "-----------------------------\n";
+    cout << "|        X       |      Y     |\n";
+    cout << "-----------------------------\n";
+
+    int steps = static_cast<int>( round(distance / h) );
+    double x = a;
+    for (int i = 1; i <= steps; i++) {
+
+        double under = sin(x) + x * x;
+
+        if (under < 0) {
+            cout << "ODZ ERROR: sin(x) + x^2 < 0 at x = " << x << "\n";
+            cout << "Tabulation stopped.\n";
+        }
+
+        double y = sqrt(under);
+
+        cout << "| " << setw(12) << x
+             << " | " << setw(10) << y << " |\n";
+        x += steps;
+    }
+
+    cout << "-----------------------------\n";
+
+    return 0;
+}
