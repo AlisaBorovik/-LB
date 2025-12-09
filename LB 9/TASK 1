@@ -1,0 +1,36 @@
+
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+int main() {
+    const int m = 8;
+    int a[m];
+
+    srand(time(0));
+
+    for (int i = 0; i < m; i++) {
+        a[i] = rand() % 30 + 1;
+    }
+
+    cout << "Original array: ";
+    for (int i = 0; i < m; i++) cout << a[i] << " ";
+    cout << endl;
+
+    int maxIndex = 0, minIndex = 0;
+    for (int i = 1; i < m; i++) {
+        if (a[i] > a[maxIndex]) maxIndex = i;
+        if (a[i] < a[minIndex]) minIndex = i;
+    }
+
+    int nolongtimehere = a[maxIndex];
+    a[maxIndex] = a[minIndex];
+    a[minIndex] = nolongtimehere;
+
+    cout << "Array after swapping min and max: ";
+    for (int i = 0; i < m; i++) cout << a[i] << " ";
+    cout << endl;
+
+    return 0;
+}
